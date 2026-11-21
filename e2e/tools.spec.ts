@@ -34,6 +34,9 @@ const TOOLS: { slug: string; expect: RegExp }[] = [
   { slug: 'case-converter', expect: /get_user_profile/ },
   { slug: 'word-counter', expect: /^[1-9]\d*$/ },
   { slug: 'lorem-ipsum', expect: /^Lorem ipsum dolor sit amet/ },
+  { slug: 'markdown-preview', expect: /devkit-local[\s\S]*JWT Decoder/ },
+  { slug: 'code-beautify', expect: /const total = \(items, tax = 0\.2\) => \{/ },
+  { slug: 'color', expect: /^\d+\.\d{2}:1$/ },
   { slug: 'timestamp', expect: /2026-11-1\d/ },
 ];
 
@@ -72,6 +75,25 @@ test('regex timeout protects the page', async ({ page }) => {
   await expect(page.getByText(/took too long/)).toBeVisible({ timeout: 10_000 });
   await page.getByLabel('Pattern').fill('a+');
   await expect(page.getByTestId('output')).toContainText('#1');
+});
+
+test('JS minify runs under the CSP', async ({ page }) => {
+  const errors: string[] = [];
+  page.on('console', (m) => m.type() === 'error' && errors.push(m.text()));
+  await page.goto('/tools/code-beautify');
+  await page.getByRole('button', { name: 'Load sample' }).click();
+  await page.getByRole('tab', { name: 'Minify' }).click();
+  await expect(page.getByTestId('output')).toHaveText(/^const total=/, { timeout: 15_000 });
+  expect(errors).toEqual([]);
+});
+
+test('markdown preview strips scripts', async ({ page }) => {
+  await page.goto('/tools/markdown-preview');
+  await page.getByRole('textbox', { name: 'Markdown' }).fill('# Hi\n<img src=x onerror="document.title=\'pwned\'"><script>document.title="pwned"</script>');
+  await expect(page.getByTestId('output')).toContainText('Hi');
+  await page.waitForTimeout(500);
+  expect(await page.title()).not.toBe('pwned');
+  expect(await page.getByTestId('output').innerHTML()).not.toMatch(/onerror|<script/);
 });
 
 test('json formatter shows error position', async ({ page }) => {

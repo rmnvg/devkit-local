@@ -65,3 +65,8 @@ Choices not covered by `PLAN.md`, newest last. Format: **date — decision** —
   list adds bot / AI-crawler detection (GPTBot, ClaudeBot, PerplexityBot, …).
 - **2026-11-21 — cURL parsing is hand-written** — a shell-style tokenizer plus the common flags.
   Unknown flags produce warnings instead of failing the whole command.
+- **2026-11-21 — Markdown uses `marked` + DOMPurify; external images stay blocked** — the CSP's
+  `img-src 'self' data: blob:` stops remote images in previews. That is intended (it would leak
+  that a document was opened) and the UI says so.
+- **2026-11-21 — Minification: terser for JS (lazy-loaded), small hand-written minifiers for
+  CSS/HTML** — terser runs under the CSP (no `eval`), verified by an e2e test.

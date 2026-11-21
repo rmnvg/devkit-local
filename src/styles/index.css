@@ -84,3 +84,21 @@
 .dark .cm-editor .cm-placeholder {
   color: #94a3b8;
 }
+
+/* Markdown preview typography */
+.md-preview { line-height: 1.6; }
+.md-preview h1 { @apply mb-3 mt-4 text-2xl font-semibold; }
+.md-preview h2 { @apply mb-2 mt-4 border-b border-slate-200 pb-1 text-xl font-semibold dark:border-slate-800; }
+.md-preview h3 { @apply mb-2 mt-3 text-lg font-semibold; }
+.md-preview p, .md-preview ul, .md-preview ol, .md-preview blockquote, .md-preview pre, .md-preview table { @apply mb-3; }
+.md-preview ul { @apply list-disc pl-6; }
+.md-preview ol { @apply list-decimal pl-6; }
+.md-preview li:has(> input[type='checkbox']) { @apply list-none -ml-5; }
+.md-preview a { @apply text-sky-700 underline dark:text-sky-300; }
+.md-preview code { @apply rounded bg-slate-100 px-1 font-mono text-[0.9em] dark:bg-slate-800; }
+.md-preview pre { @apply overflow-auto rounded-md bg-slate-100 p-3 dark:bg-slate-900; }
+.md-preview pre code { @apply bg-transparent p-0; }
+.md-preview blockquote { @apply border-l-4 border-slate-300 pl-3 text-slate-600 dark:border-slate-700 dark:text-slate-400; }
+.md-preview table { @apply border-collapse text-sm; }
+.md-preview th, .md-preview td { @apply border border-slate-300 px-2 py-1 dark:border-slate-700; }
+.md-preview img { @apply max-w-full; }

@@ -32,6 +32,9 @@ import textDiff from '@/tools/text-diff';
 import caseConverter from '@/tools/case-converter';
 import wordCounter from '@/tools/word-counter';
 import loremIpsum from '@/tools/lorem-ipsum';
+import markdownPreview from '@/tools/markdown-preview';
+import codeBeautify from '@/tools/code-beautify';
+import color from '@/tools/color';
 import timestamp from '@/tools/timestamp';
 
 export type { ToolMeta, ToolCategory } from './types';
@@ -69,7 +72,10 @@ export const tools: ToolMeta[] = [
   caseConverter,
   wordCounter,
   loremIpsum,
+  markdownPreview,
+  codeBeautify,
   timestamp,
+  color,
 ];
 
 const bySlug = new Map(tools.map((t) => [t.slug, t]));
