@@ -127,7 +127,7 @@ export default function LlmCost() {
                   <td className="font-sans">
                     <span title={r.model.notes}>{r.model.displayName}</span>
                     {best && <span className="ml-2 rounded bg-emerald-600 px-1.5 py-0.5 text-[10px] font-semibold uppercase text-white">cheapest</span>}
-                    {r.model.notes && <span className="ml-1 cursor-help text-slate-400" title={r.model.notes} aria-label={r.model.notes}>ⓘ</span>}
+                    {r.model.notes && <span className="ml-1 cursor-help text-slate-500 dark:text-slate-400" title={r.model.notes} role="img" aria-label={`Note: ${r.model.notes}`}>ⓘ</span>}
                   </td>
                   <td className="font-sans text-slate-500">{r.model.provider}</td>
                   <td className="text-right">{r.model.contextWindow ? `${Math.round(r.model.contextWindow / 1000).toLocaleString()}K` : '—'}</td>

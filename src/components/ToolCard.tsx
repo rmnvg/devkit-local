@@ -9,8 +9,8 @@ export function ToolCard({ tool, fav }: { tool: ToolMeta; fav?: boolean }) {
     >
       <span className="flex items-center gap-2 font-medium group-hover:text-sky-700 dark:group-hover:text-sky-300">
         {tool.name}
-        {fav && <span className="text-amber-400" aria-label="favorite">★</span>}
-        {tool.isNew && <span className="rounded bg-sky-600 px-1 text-[10px] font-semibold uppercase text-white">new</span>}
+        {fav && <span className="text-amber-400" role="img" aria-label="favorite">★</span>}
+        {tool.isNew && <span className="rounded bg-sky-700 px-1 text-[10px] font-semibold uppercase text-white">new</span>}
       </span>
       <span className="text-sm text-slate-600 dark:text-slate-400">{tool.description}</span>
     </Link>

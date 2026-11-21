@@ -31,7 +31,7 @@ export function OutputPanel({
         tabIndex={0}
         className="code-box min-h-64 max-h-[70vh] overflow-auto whitespace-pre-wrap break-words"
       >
-        {value || <span className="text-slate-400 dark:text-slate-500">{placeholder}</span>}
+        {value || <span className="text-slate-500 dark:text-slate-400">{placeholder}</span>}
       </pre>
     </Panel>
   );

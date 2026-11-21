@@ -41,7 +41,7 @@ export function Layout() {
 
   return (
     <div className="flex min-h-screen flex-col">
-      <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:left-2 focus:top-2 focus:z-50 focus:rounded focus:bg-sky-600 focus:px-3 focus:py-1 focus:text-white">
+      <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:left-2 focus:top-2 focus:z-50 focus:rounded focus:bg-sky-700 focus:px-3 focus:py-1 focus:text-white">
         Skip to content
       </a>
       <header className="sticky top-0 z-30 flex h-14 items-center gap-3 border-b border-slate-200 bg-white/90 px-4 backdrop-blur dark:border-slate-800 dark:bg-slate-950/90">
@@ -123,7 +123,7 @@ export function Layout() {
                         }
                       >
                         {t.name}
-                        {t.isNew && <span className="ml-1.5 rounded bg-sky-600 px-1 text-[10px] font-semibold uppercase text-white">new</span>}
+                        {t.isNew && <span className="ml-1.5 rounded bg-sky-700 px-1 text-[10px] font-semibold uppercase text-white">new</span>}
                       </NavLink>
                     </li>
                   ))}

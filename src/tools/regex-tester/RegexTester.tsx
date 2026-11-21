@@ -33,7 +33,7 @@ export default function RegexTester() {
       <div className="flex flex-col gap-2">
         <div className="flex flex-wrap items-center gap-2">
           <label className="flex min-w-0 flex-1 items-center rounded-md border border-slate-300 bg-white font-mono text-sm dark:border-slate-700 dark:bg-slate-900">
-            <span className="pl-3 text-slate-400">/</span>
+            <span className="pl-3 text-slate-500 dark:text-slate-400">/</span>
             <input
               aria-label="Pattern"
               spellCheck={false}
@@ -42,7 +42,7 @@ export default function RegexTester() {
               placeholder="pattern"
               onChange={(e) => set({ pattern: e.target.value })}
             />
-            <span className="pr-3 text-slate-400">/{s.flags}</span>
+            <span className="pr-3 text-slate-500 dark:text-slate-400">/{s.flags}</span>
           </label>
           <fieldset className="flex gap-1" aria-label="Flags">
             {FLAGS.map((f) => (
@@ -60,7 +60,7 @@ export default function RegexTester() {
       <SplitPanels>
         <Panel title="Test text">
           <textarea aria-label="Test text" spellCheck={false} className="code-box min-h-48 w-full resize-y" value={s.text} onChange={(e) => set({ text: e.target.value })} placeholder="Text to test against…" />
-          <div className="code-box min-h-24 max-h-80 overflow-auto whitespace-pre-wrap break-words" aria-label="Highlighted matches">
+          <div role="region" className="code-box min-h-24 max-h-80 overflow-auto whitespace-pre-wrap break-words" aria-label="Highlighted matches">
             {segments(s.text === text ? text : s.text, s.text === text ? matches : []).map((seg, i) =>
               seg.match === null ? <span key={i}>{seg.text}</span> : <mark key={i} className={`${HL[seg.match % 2]} rounded-sm text-inherit`}>{seg.text}</mark>,
             )}
@@ -83,7 +83,7 @@ export default function RegexTester() {
             {matches.map((m, i) => (
               <div key={i} className="rounded-md border border-slate-200 p-2 text-sm dark:border-slate-800">
                 <div className="flex justify-between gap-2">
-                  <code className="break-all font-mono">{m.text || <em className="text-slate-400">(empty)</em>}</code>
+                  <code className="break-all font-mono">{m.text || <em className="text-slate-500 dark:text-slate-400">(empty)</em>}</code>
                   <span className="shrink-0 text-xs text-slate-500">#{i + 1} · {m.index}–{m.end}</span>
                 </div>
                 {m.groups.length > 0 && (
@@ -94,7 +94,7 @@ export default function RegexTester() {
                         return (
                           <tr key={gi}>
                             <td className="w-24 pr-2 text-slate-500">${gi + 1}{name ? ` <${name}>` : ''}</td>
-                            <td className="break-all">{g ?? <em className="text-slate-400">undefined</em>}</td>
+                            <td className="break-all">{g ?? <em className="text-slate-500 dark:text-slate-400">undefined</em>}</td>
                           </tr>
                         );
                       })}

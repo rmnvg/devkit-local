@@ -29,7 +29,7 @@ function ToolPageInner({ slug }: { slug: string }) {
 
 function ToolSkeleton() {
   return (
-    <div className="mx-auto max-w-7xl animate-pulse" aria-busy="true" aria-label="Loading tool">
+    <div className="mx-auto max-w-7xl animate-pulse" role="status" aria-busy="true" aria-label="Loading tool">
       <div className="mb-3 h-8 w-64 rounded bg-slate-200 dark:bg-slate-800" />
       <div className="mb-6 h-4 w-96 max-w-full rounded bg-slate-200 dark:bg-slate-800" />
       <div className="grid gap-4 lg:grid-cols-2">

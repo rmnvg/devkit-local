@@ -57,10 +57,10 @@ export default function JwtDecoder() {
             onChange={(e) => set({ token: e.target.value })}
           />
           {decoded.ok && (
-            <div className="code-box break-all" aria-label="Token segments">
+            <div role="region" className="code-box break-all" aria-label="Token segments">
               {decoded.value.parts.map((p, i) => (
                 <span key={i}>
-                  {i > 0 && <span className="text-slate-400">.</span>}
+                  {i > 0 && <span className="text-slate-500 dark:text-slate-400">.</span>}
                   <span className={SEG[i]}>{p}</span>
                 </span>
               ))}
@@ -114,7 +114,7 @@ export default function JwtDecoder() {
               )}
             </>
           ) : (
-            <pre data-testid="output" className="code-box min-h-40 text-slate-400">Decoded header and payload appear here.</pre>
+            <pre data-testid="output" className="code-box min-h-40 text-slate-500 dark:text-slate-400">Decoded header and payload appear here.</pre>
           )}
         </Panel>
       </SplitPanels>

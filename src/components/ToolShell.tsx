@@ -57,7 +57,7 @@ export function ToolShell({ children, onSample, onClear, output, onRun, share, t
             aria-label={fav ? 'Remove from favorites' : 'Add to favorites'}
             title={fav ? 'Remove from favorites' : 'Add to favorites'}
             onClick={() => toggleFavorite(meta.slug)}
-            className={`rounded p-1 text-xl leading-none ${fav ? 'text-amber-400' : 'text-slate-400 hover:text-amber-400'}`}
+            className={`rounded p-1 text-xl leading-none ${fav ? 'text-amber-400' : 'text-slate-500 dark:text-slate-400 hover:text-amber-400'}`}
           >
             {fav ? '★' : '☆'}
           </button>

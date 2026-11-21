@@ -20,7 +20,7 @@ export function Tabs<T extends string>({
           onClick={() => onChange(o.value)}
           className={`rounded px-3 py-1 text-sm ${
             value === o.value
-              ? 'bg-sky-600 text-white'
+              ? 'bg-sky-700 text-white'
               : 'text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800'
           }`}
         >

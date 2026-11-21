@@ -22,6 +22,27 @@ npm run test:e2e     # Playwright smoke tests (builds first)
 npm run lint && npm run typecheck
 ```
 
+## Deploying
+
+The build is fully static (`dist/`). `npm run build` runs Vite, then `scripts/prerender.mjs`, which
+writes per-route HTML (titles, meta, Open Graph), `sitemap.xml`, `robots.txt` and `404.html`.
+
+Set **`SITE_URL`** (e.g. `https://tools.example.com`) in the build environment so canonical URLs and
+the sitemap are correct.
+
+- **Vercel:** import the repo; `vercel.json` sets the build, clean URLs and security headers.
+- **Cloudflare Pages:** build command `npm run build`, output `dist`; headers come from
+  `public/_headers`.
+
+Security headers (including the CSP) are defined once in `config/security-headers.json`; a unit test
+fails if the hosting configs drift from it.
+
+## Updating model prices
+
+Edit `src/data/llm-models.json` from the official pricing pages, update `lastUpdated`, and run
+`npm test` (a zod schema validates the file). Use `null` plus a `TODO` note for unknown values;
+never guess.
+
 ## Adding a tool
 
 1. Create `src/tools/<slug>/` with:

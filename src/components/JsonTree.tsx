@@ -37,7 +37,7 @@ function Node({ name, value, path, depth }: { name: string | number | null; valu
   if (!isObj) {
     return (
       <div role="treeitem" style={{ paddingLeft: depth ? 16 : 0 }}>
-        {label}{label && <span className="text-slate-400">: </span>}<Primitive value={value} />
+        {label}{label && <span className="text-slate-500 dark:text-slate-400">: </span>}<Primitive value={value} />
       </div>
     );
   }
@@ -46,7 +46,7 @@ function Node({ name, value, path, depth }: { name: string | number | null; valu
       <button type="button" onClick={() => setOpen((o) => !o)} aria-label={open ? 'Collapse' : 'Expand'} className="mr-1 inline-block w-4 text-slate-500">
         {open ? '▾' : '▸'}
       </button>
-      {label}{label && <span className="text-slate-400">: </span>}
+      {label}{label && <span className="text-slate-500 dark:text-slate-400">: </span>}
       <span className="text-slate-500">{summarize(value)}</span>
       {open && (
         <div role="group">

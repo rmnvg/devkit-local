@@ -76,3 +76,11 @@
     @apply bg-sky-100 dark:bg-sky-950;
   }
 }
+
+/* CodeMirror placeholder: keep AA contrast in both themes */
+.cm-editor .cm-placeholder {
+  color: #64748b;
+}
+.dark .cm-editor .cm-placeholder {
+  color: #94a3b8;
+}

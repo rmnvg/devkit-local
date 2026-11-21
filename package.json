@@ -4,7 +4,7 @@
   "description": "Client-side developer toolbox for AI engineers. Everything runs in your browser.",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && node scripts/prerender.mjs",
     "preview": "vite preview",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",

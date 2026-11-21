@@ -21,7 +21,7 @@ for (const { slug, expect: pattern } of TOOLS) {
     await page.goto(`/tools/${slug}`);
     await page.getByRole('button', { name: 'Load sample' }).click();
     await expect(page.getByTestId('output').first()).toHaveText(pattern, { timeout: 15_000 });
-    expect(errors).toEqual([]);
+    expect(errors, errors.join("\n")).toEqual([]);
   });
 }
 

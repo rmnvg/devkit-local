@@ -83,7 +83,7 @@ export default function TokenCounter() {
                 Show token boundaries
               </label>
               {s.showTokens && tok.result && tok.result.pieces.length > 0 && (
-                <div className="code-box max-h-[50vh] overflow-auto whitespace-pre-wrap break-words" aria-label="Token visualization">
+                <div role="region" className="code-box max-h-[50vh] overflow-auto whitespace-pre-wrap break-words" aria-label="Token visualization">
                   {tok.result.pieces.map((p, i) => (
                     <span key={i} className={`${COLORS[i % COLORS.length]} rounded-sm`}>{visiblePiece(p)}</span>
                   ))}

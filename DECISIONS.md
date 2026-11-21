@@ -37,3 +37,19 @@ Choices not covered by `PLAN.md`, newest last. Format: **date — decision** —
   from aistudio.google.com/docs/pricing); context windows from each provider's per-model pages.
   Only Claude Haiku 4.5's max output remains `null`. Gemini 4 Carbon/Argon and 3.8 Flash have
   promotional prices that end 2026-11-30 / 2026-12-31 — **update the JSON after those dates**.
+- **2026-11-21 — "Prerender" = build-time static HTML per route (`scripts/prerender.mjs`)** — each
+  route gets its own file with title, description, canonical, Open Graph tags and a short static
+  body; React replaces the body on load. No headless browser at build time. Tool metadata is
+  loaded from the real registry with Vite's `runnerImport`, so nothing is duplicated.
+- **2026-11-21 — Routes are written as `tools/<slug>.html`** — Vercel (`cleanUrls`) and Cloudflare
+  Pages both serve them at `/tools/<slug>`; unknown URLs get `404.html` (the app shell, which shows
+  the in-app 404). No SPA rewrite needed.
+- **2026-11-21 — `SITE_URL` env var sets canonical/sitemap URLs** — defaults to the placeholder
+  `https://devkit-local.example`; set it in the hosting project before the first deploy.
+- **2026-11-21 — Security headers live in `config/security-headers.json`** — `vite preview` serves
+  them so every e2e test runs under the production CSP; a unit test checks `vercel.json` and
+  `public/_headers` match it.
+- **2026-11-21 — `build.assetsInlineLimit: 0`** — Vite inlined small font subsets as `data:` URIs,
+  which the CSP (`font-src 'self'`) blocks. Not inlining keeps the CSP strict.
+- **2026-11-21 — Service worker precaches everything (≈4.8 MB, mostly tokenizer ranks)** — needed
+  for the offline promise; `autoUpdate` + `clientsClaim` so new deploys take over on next load.
