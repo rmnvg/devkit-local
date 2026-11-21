@@ -65,7 +65,8 @@ export function Layout() {
         </button>
         <Link to="/" className="flex items-center gap-2 font-semibold tracking-tight">
           <img src="/icons/icon.svg" alt="" width={24} height={24} />
-          devkit-local
+          <span className="hidden sm:inline">devkit-local</span>
+          <span className="sr-only sm:hidden">devkit-local home</span>
         </Link>
         <button
           type="button"

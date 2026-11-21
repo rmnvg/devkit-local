@@ -28,12 +28,12 @@ test('navigate to a tool from home, sidebar and palette', async ({ page }) => {
 });
 
 test('favorites and recents persist after reload', async ({ page }) => {
-  await page.goto('/tools/hello');
+  await page.goto('/tools/timestamp');
   await page.getByRole('button', { name: 'Add to favorites' }).click();
   await page.goto('/');
   await page.reload();
-  await expect(page.getByRole('region', { name: 'Favorites' }).getByText('Hello')).toBeVisible();
-  await expect(page.getByRole('region', { name: 'Recent' }).getByText('Hello')).toBeVisible();
+  await expect(page.getByRole('region', { name: 'Favorites' }).getByText('Timestamp Converter')).toBeVisible();
+  await expect(page.getByRole('region', { name: 'Recent' }).getByText('Timestamp Converter')).toBeVisible();
 });
 
 test('unknown tool shows 404', async ({ page }) => {

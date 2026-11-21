@@ -1,0 +1,3 @@
+/** HS256 sample signed with the secret below (generated for this demo). */
+export const SAMPLE_SECRET = 'devkit-local-demo-secret';
+export const SAMPLE_JWT = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkFkYSBMb3ZlbGFjZSIsImVtYWlsIjoiYWRhQGV4YW1wbGUuY29tIiwicm9sZXMiOlsiYWRtaW4iLCJiaWxsaW5nIl0sImlzcyI6Imh0dHBzOi8vYXV0aC5leGFtcGxlLmNvbSIsImF1ZCI6ImRldmtpdC1kZW1vIiwiaWF0IjoxNzk1MDAwMDAwLCJleHAiOjE5NTY1MjgwMDB9.h9lO2X65kyzETg8hO328gIIga8EMt2SemtLMOozA3v0';

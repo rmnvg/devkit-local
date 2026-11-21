@@ -30,7 +30,7 @@ npm run lint && npm run typecheck
    - `<Name>.tsx` — UI (default export) built with `ToolShell`; include a sample input.
    - `index.ts` — `ToolMeta` export (slug, name, description, category, keywords, lazy component).
 2. Add it to the list in `src/lib/registry.ts`. Set `sensitive: true` if it handles secrets.
-3. Add the slug to the smoke list in `e2e/tools.spec.ts`.
+3. Add the slug and an expected-output pattern to `TOOLS` in `e2e/tools.spec.ts`.
 4. Check: no network calls, lazy-loaded, works offline, copy buttons work, errors are friendly.
 
 Every dependency must work fully offline and must not make network calls.
