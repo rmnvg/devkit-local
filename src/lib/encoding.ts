@@ -35,3 +35,22 @@ export function formatDuration(totalSeconds: number): string {
   }
   return parts.length ? parts.join(' ') : '0s';
 }
+
+export function bytesToBase64(bytes: Uint8Array): string {
+  let bin = '';
+  const CHUNK = 0x8000;
+  for (let i = 0; i < bytes.length; i += CHUNK) bin += String.fromCharCode(...bytes.subarray(i, i + CHUNK));
+  return btoa(bin);
+}
+
+export function bytesToHex(bytes: Uint8Array): string {
+  return Array.from(bytes, (b) => b.toString(16).padStart(2, '0')).join('');
+}
+
+export function hexToBytes(hex: string): Uint8Array {
+  const h = hex.replace(/\s+/g, '').replace(/^0x/i, '');
+  if (h.length % 2 || /[^0-9a-f]/i.test(h)) throw new Error('Invalid hex: use pairs of 0-9 and a-f.');
+  const out = new Uint8Array(h.length / 2);
+  for (let i = 0; i < out.length; i++) out[i] = parseInt(h.slice(i * 2, i * 2 + 2), 16);
+  return out;
+}

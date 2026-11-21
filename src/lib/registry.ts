@@ -10,6 +10,12 @@ import promptDiff from '@/tools/prompt-diff';
 import textChunker from '@/tools/text-chunker';
 import cosineSimilarity from '@/tools/cosine-similarity';
 import jwtDecoder from '@/tools/jwt-decoder';
+import base64 from '@/tools/base64';
+import hash from '@/tools/hash';
+import hmac from '@/tools/hmac';
+import password from '@/tools/password';
+import uuid from '@/tools/uuid';
+import urlEncode from '@/tools/url-encode';
 import jsonFormatter from '@/tools/json-formatter';
 import dataConverter from '@/tools/data-converter';
 import jsonToTypes from '@/tools/json-to-types';
@@ -29,6 +35,12 @@ export const tools: ToolMeta[] = [
   textChunker,
   cosineSimilarity,
   jwtDecoder,
+  base64,
+  hash,
+  hmac,
+  password,
+  uuid,
+  urlEncode,
   jsonFormatter,
   dataConverter,
   jsonToTypes,
