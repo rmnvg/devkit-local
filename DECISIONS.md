@@ -61,3 +61,7 @@ Choices not covered by `PLAN.md`, newest last. Format: **date — decision** —
   follows LangChain's RecursiveCharacterTextSplitter and runs in the tokenizer worker.
 - **2026-11-21 — Prompt Diff line mode uses `diffArrays`** — `diff` v9's `diffLines` has no
   `ignoreCase` option.
+- **2026-11-21 — `ua-parser-js` pinned to 1.0.41** — v2 is AGPL-licensed; 1.x is MIT. A small regex
+  list adds bot / AI-crawler detection (GPTBot, ClaudeBot, PerplexityBot, …).
+- **2026-11-21 — cURL parsing is hand-written** — a shell-style tokenizer plus the common flags.
+  Unknown flags produce warnings instead of failing the whole command.

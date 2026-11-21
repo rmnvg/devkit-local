@@ -25,6 +25,10 @@ const TOOLS: { slug: string; expect: RegExp }[] = [
   { slug: 'json-diff', expect: /\$\.settings\.locale/ },
   { slug: 'sql-formatter', expect: /^SELECT\n {2}u\.id,/ },
   { slug: 'csv-viewer', expect: /Claude Sonnet 5\.5/ },
+  { slug: 'curl-converter', expect: /await fetch\("https:\/\/api\.example\.com\/v1\/messages"/ },
+  { slug: 'http-status', expect: /429/ },
+  { slug: 'query-string', expect: /"brand": \[\s*"sony",\s*"bose"\s*\]/ },
+  { slug: 'user-agent', expect: /Anthropic ClaudeBot/ },
   { slug: 'regex-tester', expect: /ada\.lovelace@example\.com/ },
   { slug: 'timestamp', expect: /2026-11-1\d/ },
 ];

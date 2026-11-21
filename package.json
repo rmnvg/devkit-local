@@ -47,6 +47,7 @@
     "react-router-dom": "^6.30.6",
     "spark-md5": "^3.0.2",
     "sql-formatter": "^15.10.0",
+    "ua-parser-js": "^1.0.41",
     "zod": "^4.6.7"
   },
   "overrides": {
@@ -62,6 +63,7 @@
     "@types/react": "^18.3.31",
     "@types/react-dom": "^18.3.7",
     "@types/spark-md5": "^3.0.5",
+    "@types/ua-parser-js": "^0.7.39",
     "@vitejs/plugin-react": "^6.3.0",
     "autoprefixer": "^10.7.0",
     "eslint": "^10.15.0",
