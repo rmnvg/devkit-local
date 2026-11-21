@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-const SLUGS = ['token-counter', 'llm-cost', 'context-fit', 'schema-converter', 'chat-format', 'prompt-template', 'prompt-diff', 'text-chunker', 'cosine-similarity', 'jwt-decoder', 'base64', 'hash', 'hmac', 'password', 'uuid', 'url-encode', 'json-formatter', 'data-converter', 'json-to-types', 'jsonpath', 'json-diff', 'sql-formatter', 'csv-viewer', 'curl-converter', 'http-status', 'query-string', 'user-agent', 'regex-tester', 'timestamp'];
+const SLUGS = ['token-counter', 'llm-cost', 'context-fit', 'schema-converter', 'chat-format', 'prompt-template', 'prompt-diff', 'text-chunker', 'cosine-similarity', 'jwt-decoder', 'base64', 'hash', 'hmac', 'password', 'uuid', 'url-encode', 'json-formatter', 'data-converter', 'json-to-types', 'jsonpath', 'json-diff', 'sql-formatter', 'csv-viewer', 'curl-converter', 'http-status', 'query-string', 'user-agent', 'regex-tester', 'text-diff', 'case-converter', 'word-counter', 'lorem-ipsum', 'timestamp'];
 
 test('CSP header is served', async ({ request }) => {
   const res = await request.get('/');

@@ -28,6 +28,10 @@ import httpStatus from '@/tools/http-status';
 import queryString from '@/tools/query-string';
 import userAgent from '@/tools/user-agent';
 import regexTester from '@/tools/regex-tester';
+import textDiff from '@/tools/text-diff';
+import caseConverter from '@/tools/case-converter';
+import wordCounter from '@/tools/word-counter';
+import loremIpsum from '@/tools/lorem-ipsum';
 import timestamp from '@/tools/timestamp';
 
 export type { ToolMeta, ToolCategory } from './types';
@@ -61,6 +65,10 @@ export const tools: ToolMeta[] = [
   queryString,
   userAgent,
   regexTester,
+  textDiff,
+  caseConverter,
+  wordCounter,
+  loremIpsum,
   timestamp,
 ];
 

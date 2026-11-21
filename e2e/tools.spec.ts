@@ -30,6 +30,10 @@ const TOOLS: { slug: string; expect: RegExp }[] = [
   { slug: 'query-string', expect: /"brand": \[\s*"sony",\s*"bose"\s*\]/ },
   { slug: 'user-agent', expect: /Anthropic ClaudeBot/ },
   { slug: 'regex-tester', expect: /ada\.lovelace@example\.com/ },
+  { slug: 'text-diff', expect: /- {2}port: 8080\n\+ {2}port: 9090/ },
+  { slug: 'case-converter', expect: /get_user_profile/ },
+  { slug: 'word-counter', expect: /^[1-9]\d*$/ },
+  { slug: 'lorem-ipsum', expect: /^Lorem ipsum dolor sit amet/ },
   { slug: 'timestamp', expect: /2026-11-1\d/ },
 ];
 
