@@ -70,3 +70,8 @@ Choices not covered by `PLAN.md`, newest last. Format: **date — decision** —
   that a document was opened) and the UI says so.
 - **2026-11-21 — Minification: terser for JS (lazy-loaded), small hand-written minifiers for
   CSS/HTML** — terser runs under the CSP (no `eval`), verified by an e2e test.
+- **2026-11-21 — Image tools use canvas + `blob:` URLs** — both are allowed by the CSP
+  (`img-src 'self' data: blob:`), so nothing is uploaded. The compressor's sample is drawn on a
+  canvas, so no sample photo needs to be bundled.
+- **2026-11-21 — Color tool's live preview can fail contrast on purpose** — it shows the user's
+  own color pair. Lighthouse flags it (Accessibility 96), which is expected.

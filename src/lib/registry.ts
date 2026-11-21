@@ -35,6 +35,10 @@ import loremIpsum from '@/tools/lorem-ipsum';
 import markdownPreview from '@/tools/markdown-preview';
 import codeBeautify from '@/tools/code-beautify';
 import color from '@/tools/color';
+import cron from '@/tools/cron';
+import qrCode from '@/tools/qr-code';
+import imageBase64 from '@/tools/image-base64';
+import imageCompressor from '@/tools/image-compressor';
 import timestamp from '@/tools/timestamp';
 
 export type { ToolMeta, ToolCategory } from './types';
@@ -75,7 +79,11 @@ export const tools: ToolMeta[] = [
   markdownPreview,
   codeBeautify,
   timestamp,
+  cron,
   color,
+  qrCode,
+  imageBase64,
+  imageCompressor,
 ];
 
 const bySlug = new Map(tools.map((t) => [t.slug, t]));

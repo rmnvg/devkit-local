@@ -36,6 +36,10 @@ const TOOLS: { slug: string; expect: RegExp }[] = [
   { slug: 'lorem-ipsum', expect: /^Lorem ipsum dolor sit amet/ },
   { slug: 'markdown-preview', expect: /devkit-local[\s\S]*JWT Decoder/ },
   { slug: 'code-beautify', expect: /const total = \(items, tax = 0\.2\) => \{/ },
+  { slug: 'cron', expect: /Every 15 minutes, between 09:00 and 17:59, Monday through Friday/ },
+  { slug: 'qr-code', expect: /QR code ready for 18 characters/ },
+  { slug: 'image-base64', expect: /data:image\/svg\+xml;base64,/ },
+  { slug: 'image-compressor', expect: /Compressed · 1600×1000/ },
   { slug: 'color', expect: /^\d+\.\d{2}:1$/ },
   { slug: 'timestamp', expect: /2026-11-1\d/ },
 ];

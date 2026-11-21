@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-const SLUGS = ['token-counter', 'llm-cost', 'context-fit', 'schema-converter', 'chat-format', 'prompt-template', 'prompt-diff', 'text-chunker', 'cosine-similarity', 'jwt-decoder', 'base64', 'hash', 'hmac', 'password', 'uuid', 'url-encode', 'json-formatter', 'data-converter', 'json-to-types', 'jsonpath', 'json-diff', 'sql-formatter', 'csv-viewer', 'curl-converter', 'http-status', 'query-string', 'user-agent', 'regex-tester', 'text-diff', 'case-converter', 'word-counter', 'lorem-ipsum', 'markdown-preview', 'code-beautify', 'color', 'timestamp'];
+const SLUGS = ['token-counter', 'llm-cost', 'context-fit', 'schema-converter', 'chat-format', 'prompt-template', 'prompt-diff', 'text-chunker', 'cosine-similarity', 'jwt-decoder', 'base64', 'hash', 'hmac', 'password', 'uuid', 'url-encode', 'json-formatter', 'data-converter', 'json-to-types', 'jsonpath', 'json-diff', 'sql-formatter', 'csv-viewer', 'curl-converter', 'http-status', 'query-string', 'user-agent', 'regex-tester', 'text-diff', 'case-converter', 'word-counter', 'lorem-ipsum', 'markdown-preview', 'code-beautify', 'color', 'timestamp', 'cron', 'qr-code', 'image-base64', 'image-compressor'];
 
 test('CSP header is served', async ({ request }) => {
   const res = await request.get('/');
@@ -8,6 +8,7 @@ test('CSP header is served', async ({ request }) => {
 });
 
 test('using every tool makes no requests to other origins', async ({ page, baseURL }) => {
+  test.setTimeout(180_000);
   const origin = new URL(baseURL!).origin;
   const external: string[] = [];
   const violations: string[] = [];
@@ -19,7 +20,7 @@ test('using every tool makes no requests to other origins', async ({ page, baseU
   for (const slug of SLUGS) {
     await page.goto(`/tools/${slug}`);
     await page.getByRole('button', { name: 'Load sample' }).click();
-    await expect(page.getByTestId('output').first()).not.toBeEmpty();
+    await expect(page.getByTestId('output').first()).not.toBeEmpty({ timeout: 15_000 });
     await page.waitForTimeout(300);
   }
   expect(external).toEqual([]);
