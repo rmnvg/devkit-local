@@ -1,10 +1,10 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
+import '@fontsource-variable/inter';
+import '@fontsource/jetbrains-mono/400.css';
+import '@fontsource/jetbrains-mono/600.css';
 import './styles/index.css';
-
-function App() {
-  return <h1 className="p-8 text-2xl font-semibold">devkit-local</h1>;
-}
+import { App } from './app/App';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
