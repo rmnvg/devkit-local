@@ -1,6 +1,7 @@
 import { expose } from 'comlink';
 import { Tiktoken } from 'js-tiktoken/lite';
 import { tokenize, type TokenizeResult } from '@/tools/token-counter/logic';
+import { chunkText, type Chunk, type ChunkOptions, type Result } from '@/tools/text-chunker/logic';
 
 export type EncodingName = 'o200k_base' | 'cl100k_base';
 
@@ -22,6 +23,9 @@ async function getEncoder(name: EncodingName): Promise<Tiktoken> {
 const api = {
   async tokenize(text: string, encoding: EncodingName, maxPieces: number): Promise<TokenizeResult> {
     return tokenize(await getEncoder(encoding), text, maxPieces);
+  },
+  async chunk(text: string, options: ChunkOptions, encoding: EncodingName): Promise<Result<Chunk[]>> {
+    return chunkText(text, options, await getEncoder(encoding));
   },
 };
 

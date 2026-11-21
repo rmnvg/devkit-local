@@ -53,3 +53,11 @@ Choices not covered by `PLAN.md`, newest last. Format: **date — decision** —
   which the CSP (`font-src 'self'`) blocks. Not inlining keeps the CSP strict.
 - **2026-11-21 — Service worker precaches everything (≈4.8 MB, mostly tokenizer ranks)** — needed
   for the offline promise; `autoUpdate` + `clientsClaim` so new deploys take over on next load.
+- **2026-11-21 — Phase 4 tool choices** — Chat Format and Schema Converter go through one internal
+  model, so every pair of formats works and round-trips are tested. Gemini has no tool-call IDs, so
+  IDs are generated and responses are matched to calls by function name, in order. Gemini
+  `parameters` use the OpenAPI subset: `$ref` is inlined, `oneOf` → `anyOf`, `const` → `enum`,
+  and `additionalProperties`/`default` are dropped with a warning. The Text Chunker's recursive mode
+  follows LangChain's RecursiveCharacterTextSplitter and runs in the tokenizer worker.
+- **2026-11-21 — Prompt Diff line mode uses `diffArrays`** — `diff` v9's `diffLines` has no
+  `ignoreCase` option.

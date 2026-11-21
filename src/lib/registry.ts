@@ -3,6 +3,12 @@ import type { ToolMeta } from './types';
 import tokenCounter from '@/tools/token-counter';
 import llmCost from '@/tools/llm-cost';
 import contextFit from '@/tools/context-fit';
+import schemaConverter from '@/tools/schema-converter';
+import chatFormat from '@/tools/chat-format';
+import promptTemplate from '@/tools/prompt-template';
+import promptDiff from '@/tools/prompt-diff';
+import textChunker from '@/tools/text-chunker';
+import cosineSimilarity from '@/tools/cosine-similarity';
 import jwtDecoder from '@/tools/jwt-decoder';
 import jsonFormatter from '@/tools/json-formatter';
 import dataConverter from '@/tools/data-converter';
@@ -16,6 +22,12 @@ export const tools: ToolMeta[] = [
   tokenCounter,
   llmCost,
   contextFit,
+  schemaConverter,
+  chatFormat,
+  promptTemplate,
+  promptDiff,
+  textChunker,
+  cosineSimilarity,
   jwtDecoder,
   jsonFormatter,
   dataConverter,

@@ -17,6 +17,10 @@ function getRemote(): Remote<TokenizerApi> {
   return remote;
 }
 
+export function chunkInWorker(...args: Parameters<TokenizerApi['chunk']>) {
+  return getRemote().chunk(...args);
+}
+
 export function tokenizeInWorker(text: string, encoding: EncodingName, maxPieces = 0): Promise<TokenizeResult> {
   return getRemote().tokenize(text, encoding, maxPieces);
 }
