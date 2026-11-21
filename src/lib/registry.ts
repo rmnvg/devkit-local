@@ -19,6 +19,10 @@ import urlEncode from '@/tools/url-encode';
 import jsonFormatter from '@/tools/json-formatter';
 import dataConverter from '@/tools/data-converter';
 import jsonToTypes from '@/tools/json-to-types';
+import jsonpath from '@/tools/jsonpath';
+import jsonDiff from '@/tools/json-diff';
+import sqlFormatter from '@/tools/sql-formatter';
+import csvViewer from '@/tools/csv-viewer';
 import regexTester from '@/tools/regex-tester';
 import timestamp from '@/tools/timestamp';
 
@@ -44,6 +48,10 @@ export const tools: ToolMeta[] = [
   jsonFormatter,
   dataConverter,
   jsonToTypes,
+  jsonpath,
+  jsonDiff,
+  sqlFormatter,
+  csvViewer,
   regexTester,
   timestamp,
 ];

@@ -21,6 +21,10 @@ const TOOLS: { slug: string; expect: RegExp }[] = [
   { slug: 'json-formatter', expect: /"name": "devkit-local"/ },
   { slug: 'data-converter', expect: /address\.city/ },
   { slug: 'json-to-types', expect: /export interface ChatCompletion/ },
+  { slug: 'jsonpath', expect: /Sayings of the Century[\s\S]*Moby Dick/ },
+  { slug: 'json-diff', expect: /\$\.settings\.locale/ },
+  { slug: 'sql-formatter', expect: /^SELECT\n {2}u\.id,/ },
+  { slug: 'csv-viewer', expect: /Claude Sonnet 5\.5/ },
   { slug: 'regex-tester', expect: /ada\.lovelace@example\.com/ },
   { slug: 'timestamp', expect: /2026-11-1\d/ },
 ];
