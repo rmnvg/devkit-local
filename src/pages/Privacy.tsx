@@ -1,9 +1,10 @@
 import headers from '../../config/security-headers.json';
-import { SITE_NAME, useDocumentMeta } from '@/lib/useDocumentMeta';
+import { STATIC_PAGES } from '@/lib/seo';
+import { useSeo } from '@/lib/useSeo';
 import { Prose } from './Prose';
 
 export default function Privacy() {
-  useDocumentMeta(`Privacy — ${SITE_NAME}`, 'How devkit-local keeps your data private: everything runs in your browser, enforced by a strict Content-Security-Policy.');
+  useSeo(STATIC_PAGES.privacy);
   const csp = headers['Content-Security-Policy'];
   return (
     <Prose>

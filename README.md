@@ -37,6 +37,13 @@ the sitemap are correct.
 Security headers (including the CSP) are defined once in `config/security-headers.json`; a unit test
 fails if the hosting configs drift from it.
 
+## SEO
+
+Titles, descriptions, JSON-LD and related-tool links all come from `src/lib/seo.ts`. The live app
+(`useSeo`) and the build-time prerender both use it. `npm test` fails if a tool's title is over 60
+characters, its description is outside 70–160 characters, or either one is duplicated. Give new
+tools a clear one-line `description` and at least four `keywords`.
+
 ## Updating model prices
 
 Edit `src/data/llm-models.json` from the official pricing pages, update `lastUpdated`, and run

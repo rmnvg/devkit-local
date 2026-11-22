@@ -29,7 +29,7 @@ test('using every tool makes no requests to other origins', async ({ page, baseU
 
 test('prerendered tool pages carry title and description', async ({ request }) => {
   const html = await (await request.get('/tools/jwt-decoder')).text();
-  expect(html).toContain('<title>JWT Decoder — devkit-local</title>');
+  expect(html).toContain('<title>JWT Decoder Online — Free &amp; Private | devkit-local</title>');
   expect(html).toContain('<meta property="og:title"');
 });
 

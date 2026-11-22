@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom';
-import { SITE_NAME, useDocumentMeta } from '@/lib/useDocumentMeta';
+import { STATIC_PAGES } from '@/lib/seo';
+import { useSeo } from '@/lib/useSeo';
 
 export default function NotFound() {
-  useDocumentMeta(`Not found — ${SITE_NAME}`);
+  useSeo(STATIC_PAGES.notFound);
   return (
     <div className="mx-auto max-w-xl py-16 text-center">
       <h1 className="mb-2 text-3xl font-semibold">Page not found</h1>

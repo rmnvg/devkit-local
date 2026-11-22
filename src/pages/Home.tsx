@@ -1,21 +1,25 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import { tools, getTool } from '@/lib/registry';
 import { CATEGORIES, type ToolMeta } from '@/lib/types';
 import { getFavorites, getRecents, useStorage } from '@/lib/storage';
 import { searchTools } from '@/lib/search';
 import { ToolCard } from '@/components/ToolCard';
-import { SITE_NAME, useDocumentMeta } from '@/lib/useDocumentMeta';
+import { HOME_SEO } from '@/lib/seo';
+import { useSeo } from '@/lib/useSeo';
 
 function resolve(slugs: string[]): ToolMeta[] {
   return slugs.map(getTool).filter((t): t is ToolMeta => !!t);
 }
 
 export default function Home() {
-  useDocumentMeta(
-    `${SITE_NAME} — the dev toolbox for AI engineers`,
-    'Token counter, LLM cost calculator, context window fit, JWT, JSON, regex and more. Everything runs locally in your browser.',
-  );
-  const [q, setQ] = useState('');
+  useSeo(HOME_SEO);
+  const { hash } = useLocation();
+  useEffect(() => {
+    // category anchors (/#ai) from breadcrumbs
+    if (hash.length > 1) document.getElementById(hash.slice(1))?.scrollIntoView();
+  }, [hash]);
+  const [q, setQ] = useState(() => (typeof window !== 'undefined' ? new URLSearchParams(window.location.search).get('q') ?? '' : ''));
   const favs = useStorage(getFavorites);
   const recents = useStorage(getRecents);
   const favTools = resolve(favs);
@@ -64,7 +68,7 @@ export default function Home() {
             const items = tools.filter((t) => t.category === c.id);
             if (!items.length) return null;
             return (
-              <Section key={c.id} title={c.label}>
+              <Section key={c.id} id={c.id} title={c.label}>
                 {items.map((t) => <ToolCard key={t.slug} tool={t} fav={favs.includes(t.slug)} />)}
               </Section>
             );
@@ -75,9 +79,9 @@ export default function Home() {
   );
 }
 
-function Section({ title, children }: { title: string; children: React.ReactNode }) {
+function Section({ title, children, id }: { title: string; children: React.ReactNode; id?: string }) {
   return (
-    <section aria-label={title}>
+    <section aria-label={title} id={id} className="scroll-mt-20">
       <h2 className="mb-3 text-sm font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">{title}</h2>
       <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">{children}</div>
     </section>

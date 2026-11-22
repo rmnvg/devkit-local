@@ -75,3 +75,10 @@ Choices not covered by `PLAN.md`, newest last. Format: **date — decision** —
   canvas, so no sample photo needs to be bundled.
 - **2026-11-21 — Color tool's live preview can fail contrast on purpose** — it shows the user's
   own color pair. Lighthouse flags it (Accessibility 96), which is expected.
+- **2026-11-22 — SEO pass (`src/lib/seo.ts`, one source for prerender + runtime)** — titles ≤ 60
+  chars (`<Tool> Online — Free & Private | devkit-local`, shorter fallbacks for long names),
+  descriptions 70–160 chars, JSON-LD (`WebSite` + `SearchAction` + `ItemList` on home;
+  `WebApplication` + `BreadcrumbList` per tool), Twitter/OG tags with image size, `robots` meta
+  (`noindex` on 404), crawlable static body per tool, visible breadcrumbs, and "Related tools"
+  links (same category first). Unit tests enforce the length and uniqueness rules for every tool.
+- **2026-11-22 — Home supports `?q=`** — makes the WebSite SearchAction (sitelinks search box) work.

@@ -1,11 +1,12 @@
 import { Link } from 'react-router-dom';
 import { catalog } from '@/lib/llm';
 import { tools } from '@/lib/registry';
-import { SITE_NAME, useDocumentMeta } from '@/lib/useDocumentMeta';
+import { SITE_NAME, STATIC_PAGES } from '@/lib/seo';
+import { useSeo } from '@/lib/useSeo';
 import { Prose } from './Prose';
 
 export default function About() {
-  useDocumentMeta(`About — ${SITE_NAME}`, 'About devkit-local, an offline-capable developer toolbox for AI engineers.');
+  useSeo(STATIC_PAGES.about);
   return (
     <Prose>
       <h1>About</h1>
